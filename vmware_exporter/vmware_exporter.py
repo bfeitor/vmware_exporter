@@ -463,8 +463,8 @@ class VmwareCollector():
 
             if 'summary.config.numCpu' in row:
                 metrics['vmware_vm_num_cpu'].add_metric(labels, row['summary.config.numCpu'])
-            
-            metrics['vmware_vm_memory_max'].add_metric(labels, vm.get('summary.config.memorySizeMB', 0))
+
+            metrics['vmware_vm_memory_max'].add_metric(labels, row.get('summary.config.memorySizeMB', 0))
 
             if 'guest.disk' in row and len(row['guest.disk']) > 0:
                 for disk in row['guest.disk']:
